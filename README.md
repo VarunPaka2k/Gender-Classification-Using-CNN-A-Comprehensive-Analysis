@@ -145,6 +145,60 @@ Once the model is loaded, you can use it to classify new images, fine-tune it wi
 
 ---
 
+### **Activation Functions Used**
+
+In this CNN model, several activation functions are used to introduce non-linearity into the model and allow it to learn complex patterns. Each function was chosen based on its nature and suitability for the task at hand. Below is an explanation of why each activation function was used as well as their formulas.
+
+#### **1. ReLU (Rectified Linear Unit) Activation**
+- **Why Used**: The ReLU function is employed widely in CNN architectures due to its simplicity and efficiency. It introduces non-linearity so that the model learns complex patterns but is computationally efficient since it does not incorporate complex computations like the sigmoid or tanh functions.
+
+- **Formula**:
+    \[
+    f(x) = \max(0, x)
+    \]
+Where \( x \) is the input to the neuron.
+    
+  - **Explanation**: 
+    - If \( x \) is positive, the output is \( x \).
+    - If \( x \) is negative, the output is 0. 
+    
+  - **Advantages**:
+- **Accelerated Training**: As it does not entail costly exponentiation computation, ReLU accelerates the training.
+- **Less Chances of Vanishing Gradient Problem**: ReLU reduces the chances of the vanishing gradient problem that other activation functions such as sigmoid or tanh frequently encounter.
+- **Sparsity**: The elimination of negative values brings in sparsity, which may result in more economical computation.
+
+#### **2. Max Pooling**
+- **Why Used**: Max pooling is not strictly an activation function, but serves a similar purpose in the network by reducing the spatial dimensions of the data without sacrificing the most important features (max in a feature map). This reduces the parameters and computations in the network, and also helps with translation invariance (the ability of the model to recognize patterns in images regardless of where they are in the image).
+
+- **Formula**: Max pooling operates on an input feature map by selecting the maximum value across each sub-region (typically of size 2x2 or 3x3).
+
+- **Explanation**:
+- The feature map is divided into patches and the maximum value of each patch is stored. This reduces the spatial size of the feature map.
+
+#### **3. Sigmoid Activation (For Output Layer)**
+- **Why Used**: Sigmoid activation function is used in the output layer as this is a binary classification problem (gender: male/female). Sigmoid outputs values between 0 and 1, which is ideal for representing probabilities for binary classification.
+
+  - **Formula**:
+    \[
+    f(x) = \frac{1}{1 + e^{-x}}
+    \]
+Where \( e \) is Euler's number and \( x \) is the function input.
+
+  - **Explanation**:
+    - Sigmoid's output is a probability score, between 0 and 1. In binary classification, the threshold is typically 0.5:
+- If the output is \( \geq 0.5 \), the predicted class is 1 (female).
+      - If the output is \( < 0.5 \), the predicted class is 0 (male).
+    
+
+- **Advantages:**
+- **Probability Output**: Because it produces values between 0 and 1, it can be interpreted as a probability, making it work well for classification tasks where the output should be a probability of the class.
+- **Gradient Descent**: The sigmoid function has very good properties that enable the model to be convergent using gradient-based optimization algorithms.
+
+#### **Why Not Use Other Activation Functions?**
+- **Tanh**: Tanh (hyperbolic tangent), which is one of the most popular activation functions, was not chosen for this model since tanh, as well as sigmoid, suffers from the same issue of **the vanishing gradient problem**. This can lead to slow training in deep networks since the gradients are extremely small while backpropagation. Further, the tanh output spans between -1 and 1, which proves to be troublesome in some contexts, especially while initializing the weights.
+- **Leaky ReLU / ELU**: Even though Leaky ReLU and ELU (Exponential Linear Unit) can reduce the dying ReLU problem (in which neurons remain zero permanently), we used simple ReLU in this model due to simplicity and effectiveness. ReLU is well-suited for the majority of CNN-based models in real-life situations. 
+
+---
 ## Results
 
 After running the code, you will get the following outputs:
