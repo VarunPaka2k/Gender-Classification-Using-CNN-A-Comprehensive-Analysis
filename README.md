@@ -145,8 +145,6 @@ Once the model is loaded, you can use it to classify new images, fine-tune it wi
 
 ---
 
-This section explains the saved model’s purpose, how to use it, and its benefits. It provides clear instructions on how to load the model and make predictions, which will be helpful for anyone who wants to use or share the model.
-
 ## Results
 
 After running the code, you will get the following outputs:
