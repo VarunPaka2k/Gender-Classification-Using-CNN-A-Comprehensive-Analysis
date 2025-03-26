@@ -241,5 +241,8 @@ There are several ways to enhance the performance and extend the functionality o
 - TensorFlow, Keras, and OpenCV for providing the tools used in building the model and processing the images.
 - Kagglehub for providing a convenient way to download datasets.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
