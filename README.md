@@ -244,5 +244,10 @@ There are several ways to enhance the performance and extend the functionality o
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The UTKFace dataset is avaiable for non-commercial research purposes only.
+The aligned and cropped images, as well as landmarks, are obtained by Dlib.
+Please note that all the images are collected from the Internet which are not property of AICIP. AICIP is not responsible for the content nor the meaning of these images.
+The copyright belongs to the original owners. If any of the images belongs to you, please let us know and we will remove it from our dataset immediately.
+The ground truth of age, gender and race are estimated through the DEX algorithm and double checked by a human annotator. If you find anything inaccurate, please let us know.
 
 ---
